@@ -8,10 +8,14 @@ public class Door : MonoBehaviour
     [SerializeField] float openingAngle;
     [SerializeField] float animationTime;
 
-    void Start()
+    private void Start()
     {
         GameManager.Instance.RoundEndAction += OpenDoor;
         
+    }
+    private void OnEnable()
+    {
+        transform.DOKill();
     }
 
     private void OpenDoor()
